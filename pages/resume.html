@@ -47,24 +47,141 @@
 
     <header>
 
-        <h1 style="text-align: center; padding: 20px 0;">Resume</h1>
+        <h1 style="text-align: center; padding: 0px 0;">Resume</h1>
 
     </header>
 
-    <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+    <div style="display: flex; justify-content: center; align-items: center; margin: 0px 0;">
         <a href="../public/Bilal-A-Ahmadzais-Resume.pdf" target="_blank"
-           style="display: inline-block; text-align: center; padding: 15px 25px; background-color: #6c9eff; color: white; font-size: 18px; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+           style="display: inline-block; text-align: center; padding: 8px 10px; background-color: #6c9eff; color: white; font-size: 18px; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
            onmouseover="this.style.backgroundColor='#4a85d1'; this.style.transform='scale(1.05)';"
            onmouseout="this.style.backgroundColor='#6c9eff'; this.style.transform='scale(1)';">
-            <span style="margin-right: 8px;">&#x1F4E5;</span> Download Resume as PDF
+            <span style="margin-right: 4px;">&#x1F4E5;</span> Download Resume as PDF
         </a>
+
+        <style>
+            :root {
+              --background-color: #ffffff;
+              --text-color: #000000;
+            }
+        
+            [data-theme="dark"] {
+              --background-color: #000000;
+              --text-color: #ffffff;
+            }
+        
+            body {
+              background-color: var(--background-color);
+              color: var(--text-color);
+              font-family: Arial, sans-serif;
+              transition: background-color 0.3s, color 0.3s;
+              margin: 0;
+              padding: 0;
+            }
+        
+            .toggle-button {
+              position: fixed;
+              top: 10px;
+              right: 10px;
+              width: 40px;
+              height: 40px;
+              border: none;
+              border-radius: 50%;
+              background-color: var(--text-color);
+              color: var(--background-color);
+              font-size: 16px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: background-color 0.3s, color 0.3s;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+          </style>
+        </head>
+        <body>
+                
+          <script>
+            const toggleButton = document.createElement('button');
+            toggleButton.textContent = '🌗'; // Emoji for toggle button
+            toggleButton.className = 'toggle-button';
+            document.body.appendChild(toggleButton);
+        
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+        
+            toggleButton.addEventListener('click', () => {
+              const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+              document.documentElement.setAttribute('data-theme', theme);
+              localStorage.setItem('theme', theme);
+            });
+          </script>
+
     </div>
      
 
 
     <main>
         
-        <h2>Work Experience & Skills:</h2>
+        <h2 style="text-align: center; padding: 0px 0;">
+        Bilal Ahmadzai
+        </h2>
+
+        <p style="text-align: center; padding: 2px 0;">
+            11122 Main St, Cincinnati, OH 45241 <br>
+            bahmadzai538@gmail.com (513)-915-1061 
+        </p>
+
+        <h3 style="text-align: center; padding: 2px 0;">
+            JOB OBJICTIVE
+            </h3>
+    
+            <p style="text-align: center; padding: 0px 0;">
+                Motivated, trilingual computer support graduate seeks entry level opportunity using both technical and 
+                personal skills to troubleshoot and assist clients in using technology effectively. 
+            </p>
+    
+
+            <h3 style="text-align: center; padding: 7px 0;">
+                EDUCATION
+                </h3>
+        
+                <p>
+                    Cincinnati State Technical and Community College, Cincinnati, OH: 
+                    <ul>
+                    Major: Computer Support and Administration<br>
+                    Degree: Associate of Applied Science – AAS <br>
+                    Expected Graduation Date: May, 2024 GPA: 3.9 <br>
+                    Core Courses: Operating System Administration, Computer Virtualization, Networking <br> Essentials, Server 
+                    Administration, and IT Support Desk Concepts. <br>
+                    </ul>
+                </p>
+
+
+                <p>
+                    University of Cincinnati, Cincinnati, OH:
+                    <ul>
+                    Major: Computer Science with Army ROTC Commission <br>
+                    Degree: Bachelor of Science – BS <br>
+                    Expected Graduation Date: May, 2026 <br>
+                    Core Courses: Computer Science, Army & Critical Thinking, Army Leadership, Field Craft – <br>
+                    Preventative Medicine 
+                </ul>
+                </p>
+                
+
+
+                <p>
+                    Nangarhar High School:
+                    <ul>
+                    Jalalabad, Afghanistan<br>
+                    Degree: High School Baccalaureate <br>
+                    Graduation Date: 2017 
+                </ul>
+                </p>
+
+
+        <h2 style="text-align: center; padding: 20px 0;">Work Experience & Skills:</h2>
         <dl>
             <dt>CABVI (IT Specialist):</dt>
             <dd>
@@ -147,9 +264,25 @@
     </dd>
 </dl>
 
-                </h5>
-      
+<dl>
+<dt>RELEVANT SKILLS </dt>
+    <dd>
+        <ul>
+            
+        <li>Trilingual fluency: English, Persian, & Pashto </li>
+        <li>Broad technology and software knowledge </li>
+        <li>Multicultural training, mentoring and case management </li>
+        <li>Strong customer service orientation: empathy, listening, relationship building, and collaboration.</li>
+
+        </ul>
+    </dd>
+</dl>
     </main>
-    <footer></footer>    
+
+    <footer style="position: fixed; bottom: 0; width: 100%; background-color: #f1f1f1; text-align: center; padding: 2px 0; font-size: 10px; line-height: 1; border-top: 1px solid #ddd;">
+        <p style="margin: 0; padding: 0;">Developed by Bilal Ahmadzai for Prof. Gilany's section of IT2040C</p>
+    </footer>
+    
+
 </body>
 </html>
