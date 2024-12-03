@@ -149,8 +149,45 @@
                 organization's technology needs. Additionally, I am pursuing a Bachelor of Science in Computer Science
                 with an Army ROTC Commission at the University of Cincinnati, expecting to graduate in May 2026.</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+               
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="accessibilityButton">Read Aloud</button>
+
+<script>
+    document.getElementById('accessibilityButton').addEventListener('click', () => {
+        
+        const textContent = document.body.innerText;
+
+       
+        const utterance = new SpeechSynthesisUtterance(textContent);
+
+       
+        utterance.rate = 1; 
+        utterance.pitch = 1; 
+
+        
+        const voices = window.speechSynthesis.getVoices();
+        const femaleVoice = voices.find(voice => 
+            voice.name.toLowerCase().includes('female') || 
+            voice.name.toLowerCase().includes('susan') || 
+            voice.name.toLowerCase().includes('english') 
+        );
+
+        if (femaleVoice) {
+            utterance.voice = femaleVoice;
+        }
+
+        
+        window.speechSynthesis.speak(utterance);
+    });
+
+    
+    window.speechSynthesis.onvoiceschanged = () => {
+        window.speechSynthesis.getVoices();
+    };
+</script>
+
+                
+
               </div>
             </div>
           </div>
