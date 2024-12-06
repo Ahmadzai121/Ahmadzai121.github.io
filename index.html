@@ -152,42 +152,40 @@
                
                 <button type="button" class="btn btn-primary btn-lg px-4 gap-3" id="accessibilityButton">Read Aloud</button>
 
-<script>
-    document.getElementById('accessibilityButton').addEventListener('click', () => {
-        
-        const textContent = document.body.innerText;
-
-       
-        const utterance = new SpeechSynthesisUtterance(textContent);
-
-       
-        utterance.rate = 1; 
-        utterance.pitch = 1; 
-
-        
-        const voices = window.speechSynthesis.getVoices();
-        const femaleVoice = voices.find(voice => 
-            voice.name.toLowerCase().includes('female') || 
-            voice.name.toLowerCase().includes('susan') || 
-            voice.name.toLowerCase().includes('english') 
-        );
-
-        if (femaleVoice) {
-            utterance.voice = femaleVoice;
-        }
-
-        
-        window.speechSynthesis.speak(utterance);
-    });
-
-    
-    window.speechSynthesis.onvoiceschanged = () => {
-        window.speechSynthesis.getVoices();
-    };
-</script>
-
+                <script>
+                    document.getElementById('accessibilityButton').addEventListener('click', () => {
+                    
+                        const paragraph = document.querySelector('main p.lead.mb-4');
+                        
+                        if (paragraph) {
+                            // Create a SpeechSynthesisUtterance for the paragraph text
+                            const utterance = new SpeechSynthesisUtterance(paragraph.textContent);
+                            
+                            utterance.rate = 1; 
+                            utterance.pitch = 1; 
                 
-
+                            const voices = window.speechSynthesis.getVoices();
+                            const femaleVoice = voices.find(voice => 
+                                voice.name.toLowerCase().includes('female') || 
+                                voice.name.toLowerCase().includes('susan') || 
+                                voice.name.toLowerCase().includes('english') 
+                            );
+                
+                            if (femaleVoice) {
+                                utterance.voice = femaleVoice;
+                            }
+                
+                                window.speechSynthesis.speak(utterance);
+                        } else {
+                            console.error('Paragraph element not found.');
+                        }
+                    });
+                
+                    window.speechSynthesis.onvoiceschanged = () => {
+                        window.speechSynthesis.getVoices();
+                    };
+                </script>
+            
               </div>
             </div>
           </div>
